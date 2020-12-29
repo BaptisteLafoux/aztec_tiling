@@ -6,7 +6,7 @@ import shuffling
 plt.close('all')   
 
 # order of the aztec diamond 
-order = 20
+order = 22
 
 # initilization with a random order 1 tiling (2x2)
 d1, d2 = shuffling.generate_random_block(-0.5, 0.5)       

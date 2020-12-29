@@ -30,10 +30,10 @@ class domino:
         self.body = translate(self.body, direct * self.v[0], direct * self.v[1], 0)
     
     def draw(self, col_border='k'):
-        if self.v[0] == 1: col = 'b'
-        if self.v[0] ==-1: col = 'r'
-        if self.v[1] == 1: col = 'g'
-        if self.v[1] ==-1: col = (1, 1, 0.2)
+        if self.v[0] == 1: col = (1, 0, 0)#'b'
+        if self.v[0] ==-1: col = (1, 0.3, 0.3)#'r'
+        if self.v[1] == 1: col = (1, 0.6, 0.6)#'g'
+        if self.v[1] ==-1: col = (1, 0.9, 0.9)#(1, 1, 0.2)
         
         plt.plot(*self.body.exterior.xy, col_border + '-', linewidth=1.5)
         plt.fill(*self.body.exterior.xy, color=col)
