@@ -1,6 +1,8 @@
 # Domino tiling generator for aztec diamonds
 This code generates random tiling of dominoes (2x1 or 1x2 rectangle) for aztec diamond grids. It is based on random "shuffling" algorithm described in [Elkies *et al.* (1992) [1]](#1).
 
+An [Aztec diamond](https://en.wikipedia.org/wiki/Aztec_diamond) of order *n* consists of all squares of a square lattice whose centers (*x*, *y*) satisfy |*x*| + |*y*| ≤ *n* (see image below for an example) 
+
 For a useful introduction to domino tilings, see [this excellent video](https://youtu.be/Yy7Q8IWNfHM) from the Mathologer YouTube channel. 
 
 ## Getting started 
