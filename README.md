@@ -26,5 +26,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## References
 <a id="1">[1]</a> 
 Elkies, N., Kuperberg, G., Larsen, M., & Propp, J. (1992). 
-Alternating-sign matrices and domino tilings (Part I). 
+[Alternating-sign matrices and domino tilings (Part I)](https://link.springer.com/article/10.1023/A:1022420103267). 
 *Journal of Algebraic Combinatorics*, 1(2), 111-132.
