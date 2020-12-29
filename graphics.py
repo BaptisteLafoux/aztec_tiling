@@ -1,10 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Tue Dec 29 15:41:43 2020
-
-@author: baptistelafoux
-
 Graphical and geometrical functions used for tiling algorithm of aztec diamond grids 
 """
 

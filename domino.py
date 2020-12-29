@@ -1,10 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Tue Dec 29 15:39:51 2020
-
-@author: baptistelafoux
-
 This is a domino class used for aztec diamond grid tiling
 
 A domino is a 2x1 or 1x2 rectangle embodied by a Polygon from shapely module 
@@ -13,6 +7,7 @@ Its characteristics are:
     - an orientation (N,E,S,W) (2x2 vector, "v")
     - a position (7x2 vector, "body.exterior.xy")
 """
+
 import numpy as np 
 import matplotlib.pyplot as plt
 
@@ -38,7 +33,7 @@ class domino:
         if self.v[0] == 1: col = 'b'
         if self.v[0] ==-1: col = 'r'
         if self.v[1] == 1: col = 'g'
-        if self.v[1] ==-1: col = 'y'
+        if self.v[1] ==-1: col = (1, 1, 0.2)
         
         plt.plot(*self.body.exterior.xy, col_border + '-', linewidth=1.5)
         plt.fill(*self.body.exterior.xy, color=col)

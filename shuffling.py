@@ -1,16 +1,9 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Dec 29 15:49:41 2020
-
-@author: baptistelafoux
-"""
-
 import numpy as np 
-from shapely.geometry import Point
 import random
 
+from shapely.geometry import Point
 from domino import domino 
+
 import graphics 
 
 
