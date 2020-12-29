@@ -17,7 +17,7 @@ cd aztec_tiling
 python example.py
 ```
 This will create a .png file in the current directory, representing the generated tiling. 
-
+The image below is an example of what you could get (tiling of an aztec diamond of order 22) 
 ![Domino tiling for aztec diamond of order 20](https://github.com/BaptisteLafoux/aztec_tiling/blob/main/aztec_diamond_domino_tiling_order22.png?raw=true)
 
 ## License
