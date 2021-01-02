@@ -1,29 +1,47 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Dec 30 22:20:17 2020
+
+@author: baptistelafoux
+"""
+
+import shuffling_algorithm as sa
+
 import matplotlib.pyplot as plt
 import numpy as np 
 
-import shuffling
 
-plt.close('all')   
+grid = {}
 
-# order of the aztec diamond 
-order = 22
+target_order = 75
+curr_order = 1 
 
-# initilization with a random order 1 tiling (2x2)
-d1, d2 = shuffling.generate_random_block(-0.5, 0.5)       
-tiling = np.array([d1, d2])
-
-# tiling generation from recursive random shuffling algorithm 
-tiling = shuffling.generate_aztec_tiling(tiling, order)
-
-# graphic display of tiling 
-plt.figure('Tiling of aztec diamond of order %i'%order)
-
-for tile in tiling: 
-    tile.draw()
+while curr_order < target_order: 
+    grid = sa.enlarge_grid(grid, curr_order)
+    grid = sa.move_tiles(grid, curr_order)
+    grid = sa.generate_good_block(grid)
     
+    grid = sa.destroy_bad_blocks(grid)
+    curr_order += 1
+    print(curr_order)
+
+sa.generate_good_block(grid)
+
+plt.close('all') 
+plt.figure()
+
+for coord in grid:
+    if grid[coord] != False:
+        grid[coord].show()     
+
+t = np.linspace(0, 2*np.pi, 200)
+R = (curr_order) * np.sqrt(2) / 2
+plt.plot(R * np.cos(t), R * np.sin(t), 'w-', linewidth=3)
+
 plt.axis('scaled')
 plt.axis('off')
 
-plt.savefig('aztec_diamond_domino_tiling_order%i'%order + '.png')
+plt.savefig('tiling_order%i'%curr_order + '.pdf')
 
 

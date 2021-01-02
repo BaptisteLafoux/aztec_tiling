@@ -1,40 +1,50 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-This is a domino class used for aztec diamond grid tiling
+Created on Wed Dec 30 21:16:34 2020
 
-A domino is a 2x1 or 1x2 rectangle embodied by a Polygon from shapely module 
-Its characteristics are:
-    - a body (Polygon, "body")
-    - an orientation (N,E,S,W) (2x2 vector, "v")
-    - a position (7x2 vector, "body.exterior.xy")
+@author: baptistelafoux
 """
-
-import numpy as np 
 import matplotlib.pyplot as plt
+import numpy as np 
 
-from shapely.affinity import translate
+import graphics
 
-import graphics 
-
-class domino:
-    def __init__(self, v = np.zeros(2), pos_ini = np.array([[0.5, 0.5], [0.5, 1.5]])):
+class domino: 
+    def __init__(self, pt1, pt2, v):
+        self.pt1 = pt1
+        self.pt2 = pt2
+        
         self.v = v
-        
-        s1 = graphics.centered_sqr(pos_ini[0,:])
-        s2 = graphics.centered_sqr(pos_ini[1,:])
-        self.body = s1.union(s2)
-        
-    def __eq__(self, other): 
-        return self.body.exterior.xy == other.body.exterior.xy
+        if self.v[0] == 1: self.col = 'r'
+        if self.v[0] ==-1: self.col = (1, 1, 0.2)
+        if self.v[1] == 1: self.col = 'm'
+        if self.v[1] ==-1: self.col = 'c'
     
-    def move(self, direct=1):
-        self.body = translate(self.body, direct * self.v[0], direct * self.v[1], 0)
+    def move(self):
+        self.pt1 += self.v
+        self.pt2 += self.v
     
-    def draw(self, col_border='k'):
-        if self.v[0] == 1: col = (1, 0, 0)#'b'
-        if self.v[0] ==-1: col = (1, 0.3, 0.3)#'r'
-        if self.v[1] == 1: col = (1, 0.6, 0.6)#'g'
-        if self.v[1] ==-1: col = (1, 0.9, 0.9)#(1, 1, 0.2)
-        
-        plt.plot(*self.body.exterior.xy, col_border + '-', linewidth=1.5)
-        plt.fill(*self.body.exterior.xy, color=col)
+    def show(self):
 
+        p1 = graphics.square(self.pt1)
+        p2 = graphics.square(self.pt2)
+        
+        p = p1.union(p2)
+        
+        #plt.plot(*p.exterior.xy, 'k-')        
+        plt.fill(*p.exterior.xy, color=self.col)
+
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
